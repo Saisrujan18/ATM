@@ -1,7 +1,7 @@
 ### ATM
 ATM after updating common and individual constraints
 
-This ATM has an admin who should add money in denominations of 2000,500,200,100 .
+-This ATM has an admin who should add money in denominations of 2000,500,200,100 .
 Admin can view all transactions , add money to ATM ,remove money from ATM and also can change his password.
 
 ATM identifies Admin i.e.,when ATM asks for Account number of the user . Admin enters his password (Only insiders know this)
