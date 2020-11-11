@@ -33,7 +33,9 @@ User after entering his account details ,he can only proceed forward if he enter
    - Can view ministatement
    - Can use the option of Double verifiaction
      
-As we all know ATM doesnt have infinite money ,so ATM here only allows withdrawal if the money inputed + Minbalance<=current balance and also if the ATM can give money in the denominations it has .(suppose asked for 500,if ATM has only 1 2000,then ATM cant proceed transaction).
+**As we all know ATM doesnt have infinite money ,
+  so ATM here only allows withdrawl if the money inputed + Minbalance<=current balance && also if the ATM can give money in the denominations it has .
+  (suppose asked for 500,if ATM has only 1 2000,then ATM cant proceed transaction).**
 
 AFTER SENDING A MAIL TO EASHAN SIR, SIR ADVISED ME TO DO ONLY COMMON CONSTRAINTS . I HAVE DONE 6 OF THEM(atleast 3) LEAVING DATABASE.
 
