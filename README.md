@@ -1,4 +1,4 @@
-# ATM
+### ATM
 ATM after updating common and individual constraints
 
 This ATM has an admin who should add money in denominations of 2000,500,200,100 .
