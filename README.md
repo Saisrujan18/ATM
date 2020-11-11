@@ -5,15 +5,16 @@ This ATM has an admin and Cashmanagement System.
 
 Admin can do the following tasks :
 
-1.Admin can view all transactions 
-2.Add money to ATM in denominations
-3.Remove money from ATM in denominations
-4.Can change his password.
-5.
+
+     *Admin can view all transactions 
+     *Add money to ATM in denominations 
+     *Remove money from ATM in denominations
+     *Can change his password.
+     *Can view the current state of Cash in the ATM(in denominations)
+     *Can SHUTDOWN the ATM (ONly Admin can do this ) 
 
 
-
-ATM identifies Admin i.e.,when ATM asks for Account number of the user . Admin enters his password (Only insiders know this)
+*ATM identifies Admin i.e.,when ATM asks for Account number of the user . Admin enters his password (Only insiders know this)*
 
 
 User after entering his account details ,he can only proceed forward if he enters a valid account number and later he is asked to enter pin code, of he enters correct pincode he can proceed further or else ATM restarts
