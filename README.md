@@ -39,8 +39,14 @@ AFTER SENDING A MAIL TO EASHAN SIR, SIR ADVISED ME TO DO ONLY COMMON CONSTRAINTS
 NEW FEATURES :
 
 ---> Added Family Access withdrwal
---
+
 ---> Added password encryption
---
+
 ---> Updated Transfer Option
---
+
+---> Added OTP (double verfication)
+
+---> Added Ministatement
+
+---> Updated The option to change pin(both for admin as well as user)
+
