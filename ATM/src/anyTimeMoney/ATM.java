@@ -17,10 +17,13 @@ public class ATM
 		System.out.print("\nPlease create the password of your login : ");
 		String tempPassword =x.next();
 		Admin srujan = new Admin(tempPassword);
+		
 		System.out.println("Admin wont have seperate login for security");
 		System.out.println("Admin should enter password when asked for AccountNumber");
 		
+		
 		System.out.print("\n--->ENTER THE INITIAL NUMBER OF ACCOUNTS IN THE BANK : ");
+		
 		int numberOfAccounts=x.nextInt();
 		
 		for(int i=0;i<numberOfAccounts;i++)
@@ -163,6 +166,9 @@ public class ATM
 						System.out.println("Choose 6 to withdraw money from current");
 						System.out.println("Choose 7 to transfer money ");
 						System.out.println("Choose 8 for Mini Statement ");
+						System.out.println("Choose 9 for requesting FamilyAccess");
+						System.out.println("Choose 10 for Approving FamilyAccess ");
+						System.out.println("Choose 11 for withdrawing money from FamilyMembers account");
 						int UserOption=x.nextInt();
 					
 						switch(UserOption)
@@ -375,6 +381,68 @@ public class ATM
 								break;
 						case 8 :
 							Information.getUser(Information.getvalidAccountNumberUser(UserInput)).UserMiniStatement();
+								break;
+						case  9 :
+								System.out.print("Enter the account number of the Familymember you want to access : ");
+								String reqAccessAcc = x.next();
+								if(Information.validAccountNumber(reqAccessAcc))
+								{
+									System.out.println("Wait until "+reqAccessAcc +" approves your request .");
+									Information.getUser(Information.getvalidAccountNumberUser(reqAccessAcc)).addToRequest(UserInput);
+								
+								}
+								else 
+								{
+									System.out.println("This account doesnt exist :( ");
+								}
+								break;
+						case 10 :
+								System.out.println("the system will show all the accounts which asked to grant their request");
+								System.out.println("Press 1 to approve and 2 to disaprove");
+								int temporarySize=Information.getUser(Information.getvalidAccountNumberUser(UserInput)).getSize();
+								int[] que = new int[temporarySize];
+								for(int i=0;i<temporarySize;i++)
+								{	que[i]=x.nextInt();}
+								Information.getUser(Information.getvalidAccountNumberUser(UserInput)).addToApproved(que);
+								System.out.println("Action completed");
+								break;
+						case 11 :
+								System.out.print("Enter the FamilyMember account form which u wanna withdraw money : ");
+								String withdrawFamAcc=x.next();
+								if(Information.getUser(Information.getvalidAccountNumberUser(UserInput)).Check(withdrawFamAcc))
+								{
+									System.out.println("Due to security reasons you can only withdraw money from savings");
+									System.out.print("Enter the amount you want to wthdraw ");
+									double FamAccwithdrawl=x.nextDouble();
+									
+									if(Information.getUser(Information.getvalidAccountNumberUser(withdrawFamAcc)).getSavingsBalance()>=Information.getSavingsMinBalance()+FamAccwithdrawl)
+									{
+										if(cash.getMoney()>=FamAccwithdrawl)
+										{
+											if(cash.arrange(FamAccwithdrawl))
+											{
+												System.out.println("Withdrawl successfull ");
+//												srujan.transactions.add(UserInput+" has withdrawn "+withdrawlAmount+" from his savings");
+												Information.getUser(Information.getvalidAccountNumberUser(withdrawFamAcc)).setSavingsBalance(-FamAccwithdrawl);
+//												Information.getUser(Information.getvalidAccountNumberUser(UserInput)).addToMini("User withdrawn "+withdrawlAmount+" from his savings");
+											}
+											
+											else
+											{
+												System.out.println("SORRY FOR THE INCONVINIENCE , ATM DOESNT HAVE SUFFICIENT TO DISPENSE MONEY");
+												srujan.transactions.add(UserInput+" has tried to withdraw money,but ATM couldnt accomodate");
+											}
+											
+										}
+										else
+										{
+											System.out.println("You cant withdraw this much money :)");
+											srujan.transactions.add(UserInput+" was trying withdraw more money violates rules");
+										}
+									}
+									
+								}
+								else {System.out.println("YOU DONT HAVE ACCESS TO THIS ACCOUNT");}
 								break;
 						default:
 							srujan.transactions.add(UserInput+" entered invalid input ");

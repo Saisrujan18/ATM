@@ -7,7 +7,10 @@ public class Users
 	private double SavingsBalance;
 	private double CurrentBalance;
 	private ArrayList<String> MiniStatement =new  ArrayList<String>();
-//	private String Bank;
+	private ArrayList<String> AcessGiven = new ArrayList<String>();
+	private ArrayList<String> AcessTaken = new ArrayList<String>();
+	private ArrayList<String> AcessRequested = new ArrayList<String>();
+	//	private String Bank;
 	Users(){}
 	Users(String accno,int pincode,double savbal,double currentbal)
 	{
@@ -27,6 +30,25 @@ public class Users
 //	public void setBank(String i) {Bank=i;}
 //	public String  getBank() {return Bank;}
 	public void addToMini(String s){MiniStatement.add(s);}
+	public void addToRequest(String s) {AcessRequested.add(s);}
+	public int getSize() {return AcessRequested.size();}
+	public void addToTaken(String s){AcessTaken.add(s);		}
+	public void addToApproved (int[] s)
+	{
+		int notimes=s.length;
+		int i=0;
+		while(notimes>0)
+		{
+			if(s[i]==1)
+			{
+				String soootemp=AcessRequested.get(i);
+				AcessGiven.add(soootemp);
+				Information.getUser(Information.getvalidAccountNumberUser(soootemp)).addToTaken(UserAccountNumber);
+			}
+			i++;
+			notimes--;
+		}
+	}
 	public void UserMiniStatement()
 	{
 		for(int i=1;i<=3;i++)
@@ -52,5 +74,15 @@ public class Users
 			System.out.println("SESSION ENDED");
 		}
 	}
-	
+	public boolean Check(String s)
+	{
+		for(int i=0;i<AcessTaken.size();i++)
+		{
+			if(s.equals(AcessTaken.get(i)))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }

@@ -12,5 +12,4 @@ class Admin
 	public void changePassword(String s) {Password=s;}
 	
 	public ArrayList<String> transactions = new ArrayList<String>();
-	
 }
