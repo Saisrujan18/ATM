@@ -1,9 +1,6 @@
 # ATM
 ATM after updating common and individual constraints
 
-# CS19B043_ATM_PM2
-CS19B043's ATM
-
 This ATM has an admin who should add money in denominations of 2000,500,200,100 .
 Admin can view all transactions , add money to ATM ,remove money from ATM and also can change his password.
 
