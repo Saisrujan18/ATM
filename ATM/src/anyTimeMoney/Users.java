@@ -71,17 +71,9 @@ public class Users
 	
 	public void changeUserPinCode(int pin)
 	{
-		if(Information.validPin(pin))
-		{
 			UserPinCode=pin;
 			System.out.println("User pin successfully changed");
 			System.out.println("SESSION ENDED");
-		}
-		else
-		{
-			System.out.println("Your Pin doesnt satisfy required criteria");
-			System.out.println("SESSION ENDED");
-		}
 	}
 	
 	public boolean Check(String s)

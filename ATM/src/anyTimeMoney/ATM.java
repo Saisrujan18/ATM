@@ -15,7 +15,7 @@ public class ATM
 		System.out.println("<--- Welcome Admin ! You need to setup ATM for transactions --->");
 		
 		System.out.print("\nPlease create the password of your login : ");
-		String tempPassword =x.next();
+		String tempPassword =Encryption.encryptAdmin(x.next());
 		Admin srujan = new Admin(tempPassword);
 		
 		System.out.println("Admin wont have seperate login for security");
@@ -32,7 +32,8 @@ public class ATM
 			String  tempAccNo=x.next();
 			
 			System.out.print("   Enter the pincode of the user : ");
-			int tempPin=x.nextInt();
+			int tempPin=Encryption.encrypt(x.nextInt());
+
 			
 			System.out.print("   Enter the initial balance in the savings account : ");
 			double tempsav=x.nextDouble();
@@ -75,7 +76,7 @@ public class ATM
 			System.out.println("\n\nWELCOME SRUJAN\'S ATM");
 			System.out.print("-->Please enter the AccountNumber : ");
 			String UserInput=x.next();
-			if(UserInput.equals(srujan.getPassword()))
+			if(UserInput.equals(Encryption.decrypt(srujan.getPassword())))
 			{
 				System.out.println("Here are your options");
 				System.out.println("Enter 1 to view all Transactions ");
@@ -95,7 +96,7 @@ public class ATM
 				else if(AdminOption==2)
 				{
 					System.out.print("Enter the new password : ");
-					String newPassword=x.next();
+					String newPassword=Encryption.encryptAdmin(x.next());
 					srujan.changePassword(newPassword);
 					System.out.println("Password successfully changed :) ");
 				}
@@ -156,7 +157,7 @@ public class ATM
 					Users currentUser = Information.getUser(Information.getvalidAccountNumberUser(UserInput));
 					System.out.print("-->ENTER THE 5 DIGIT PIN : ");
 					int UserPassword=x.nextInt();
-					if(UserPassword==currentUser.getUserPinCode())
+					if(UserPassword==Encryption.decrypt(currentUser.getUserPinCode()))
 					{
 						System.out.println("\nChoose 1 to check balance");
 						System.out.println("Choose 2 to change pin");
@@ -187,6 +188,7 @@ public class ATM
 								int UsernewPassword=x.nextInt();
 								if(Information.validPin(UsernewPassword))
 								{	
+									UsernewPassword=Encryption.encrypt(UsernewPassword);
 									Information.getUser(Information.getvalidAccountNumberUser(UserInput)).changeUserPinCode(UsernewPassword);
 									System.out.println("Pin Successfully updated");
 									srujan.transactions.add(UserInput+" changed his pin to "+UsernewPassword);
