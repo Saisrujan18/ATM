@@ -52,3 +52,5 @@ NEW FEATURES :
   - Added Ministatement
 
   - Updated The option to change pin(both for admin as well as user)
+
+ALL THE PASSWORDS AND PINS ARE ENCRYPTED 
