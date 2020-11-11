@@ -6,12 +6,16 @@ public class Users
 	private int UserPinCode;
 	private double SavingsBalance;
 	private double CurrentBalance;
+	private int OTP;
 	private ArrayList<String> MiniStatement =new  ArrayList<String>();
 	private ArrayList<String> AcessGiven = new ArrayList<String>();
 	private ArrayList<String> AcessTaken = new ArrayList<String>();
 	public ArrayList<String> AcessRequested = new ArrayList<String>();
+	
 	//	private String Bank;
+	
 	Users(){}
+	
 	Users(String accno,int pincode,double savbal,double currentbal)
 	{
 		UserAccountNumber=accno;
@@ -20,18 +24,23 @@ public class Users
 		CurrentBalance=currentbal;
 //		Bank=bank;
 	}
+	
 	public String getUserAccountNumber(){	return UserAccountNumber;}
 	public int getUserPinCode(){return UserPinCode;}
 	public double getSavingsBalance(){return SavingsBalance;}
 	public double getCurrentBalance(){return CurrentBalance;}
 	public void setSavingsBalance(double i){SavingsBalance+=i;}
 	public void setCurrentBalance(double i) {CurrentBalance+=i;}
-//	public void setBank(String i) {Bank=i;}
-//	public String  getBank() {return Bank;}
+
+	//	public void setBank(String i) {Bank=i;}
+
+	//	public String  getBank() {return Bank;}
+	
 	public void addToMini(String s){MiniStatement.add(s);}
 	public void addToRequest(String s) {AcessRequested.add(s);}
 	public int getSize() {return AcessRequested.size();}
 	public void addToTaken(String s){AcessTaken.add(s);		}
+	
 	public void addToApproved (int[] s)
 	{
 		int notimes=s.length;
@@ -48,6 +57,7 @@ public class Users
 			notimes--;
 		}
 	}
+	
 	public void UserMiniStatement()
 	{
 		for(int i=1;i<=3;i++)
@@ -73,6 +83,7 @@ public class Users
 			System.out.println("SESSION ENDED");
 		}
 	}
+	
 	public boolean Check(String s)
 	{
 		for(int i=0;i<AcessTaken.size();i++)
@@ -84,4 +95,11 @@ public class Users
 		}
 		return false;
 	}
+	public void DoubleVerification()
+	{
+		
+		OTP=(int)(Math.random()*10000)+10000;
+	}
+	
+	public int getOTP() {return OTP;}
 }

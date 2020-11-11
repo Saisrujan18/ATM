@@ -164,11 +164,12 @@ public class ATM
 						System.out.println("Choose 4 to deposit money in current ");
 						System.out.println("Choose 5 to withdraw money from savings");
 						System.out.println("Choose 6 to withdraw money from current");
-						System.out.println("Choose 7 to transfer money ");
+						System.out.println("Choose 7 to transfer money ");	
 						System.out.println("Choose 8 for Mini Statement ");
 						System.out.println("Choose 9 for requesting FamilyAccess");
 						System.out.println("Choose 10 for Approving FamilyAccess ");
 						System.out.println("Choose 11 for withdrawing money from FamilyMembers account");
+						System.out.println("Choose 12 for Double Verification");
 						int UserOption=x.nextInt();
 					
 						switch(UserOption)
@@ -451,6 +452,19 @@ public class ATM
 								}
 								else {System.out.println("YOU DONT HAVE ACCESS TO THIS ACCOUNT");}
 								break;
+						case 12:
+							System.out.println("Generating OTP");
+							System.out.print("Enter the OTP");
+							int takeOTP=x.nextInt();
+							if(takeOTP==Information.getUser(Information.getvalidAccountNumberUser(UserInput)).getOTP())
+							{
+								System.out.println("OTP is correct :) ACcess granted");
+							}
+							else
+							{
+								System.out.println("Entered OTP is incorrect");
+							}
+							break;
 						default:
 							srujan.transactions.add(UserInput+" entered invalid input ");
 							System.out.println("USER INPUT IS INVALID");
