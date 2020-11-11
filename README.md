@@ -23,12 +23,12 @@ User after entering his account details ,he can only proceed forward if he enter
     -----> Also he can transfer money to different accounts and different account types
 
 --->Admin can
-     > change his password
-     > add money in denominations
-     > remove money in denominations
-     > view all transactions
-         >its a string arraylist which is updated when there is an activity of the users
-     > can also view the currents state of the ATM
+     - change his password
+     - add money in denominations
+     - remove money in denominations
+     - view all transactions
+         -its a string arraylist which is updated when there is an activity of the users
+     - can also view the currents state of the ATM
 
 ----> As we all know ATM doesnt have infinite money ,so ATM here only allows withdrawal if the money inputed + Minbalance<=current balance and also if the ATM can give money in the denominations it has .(suppose asked for 500,if ATM has only 1 2000,then ATM cant proceed transaction).
 
