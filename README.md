@@ -9,15 +9,15 @@ ATM identifies Admin i.e.,when ATM asks for Account number of the user . Admin e
 User after entering his account details ,he can only proceed forward if he enters a valid account number and later he is asked to enter pin code, of he enters correct pincode he can proceed further or else ATM restarts
 
 
----->Only Admin is given the option to stop ATM 
----->Users have the following options
-     --->Withdraw money to savings account
-     --->deposit money to current account
-     --->withdraw money from current account
-     ---->deposit money to savings account
-     ---->He change his pin only if the changed pin is 5 digited(valid)
-    ---->He can also view his balance in savings and current account
-    -----> Also he can transfer money to different accounts and different account types
+1.Only Admin is given the option to stop ATM 
+2.Users have the following options
+     1.Withdraw money to savings account
+     2.deposit money to current account
+     3.withdraw money from current account
+     4.deposit money to savings account
+     5.He change his pin only if the changed pin is 5 digited(valid)
+     6.He can also view his balance in savings and current account
+     7.Also he can transfer money to different accounts and different account types
 
 --->Admin can
      - change his password
