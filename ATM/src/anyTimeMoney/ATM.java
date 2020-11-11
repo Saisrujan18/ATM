@@ -381,7 +381,8 @@ public class ATM
 								break;  
 						case 8 :
 							Information.getUser(Information.getvalidAccountNumberUser(UserInput)).UserMiniStatement();
-								break;
+							srujan.transactions.add(UserInput+" viewed his mini-statement");
+							break;
 						case  9 :
 								System.out.print("Enter the account number of the Familymember you want to access : ");
 								String reqAccessAcc = x.next();
@@ -389,11 +390,15 @@ public class ATM
 								{
 									System.out.println("Wait until "+reqAccessAcc +" approves your request .");
 									Information.getUser(Information.getvalidAccountNumberUser(reqAccessAcc)).addToRequest(UserInput);
-								
+									srujan.transactions.add(UserInput+" requested "+reqAccessAcc+" for FamilyMember withdrawl");
+									Information.getUser(Information.getvalidAccountNumberUser(UserInput)).addToMini("You requested "+reqAccessAcc+" for family withdrawl access");
+									Information.getUser(Information.getvalidAccountNumberUser(reqAccessAcc)).addToMini(UserInput+" requested you for familyMember withdrawl");
 								}
 								else 
 								{
 									System.out.println("This account doesnt exist :( ");
+									srujan.transactions.add(UserInput+" tried accessing a non existent account");
+									
 								}
 								break;
 						case 10 :
@@ -423,9 +428,10 @@ public class ATM
 											if(cash.arrange(FamAccwithdrawl))
 											{
 												System.out.println("Withdrawl successfull ");
-//												srujan.transactions.add(UserInput+" has withdrawn "+withdrawlAmount+" from his savings");
+												srujan.transactions.add(UserInput+" has withdrawn "+FamAccwithdrawl+" from "+ withdrawFamAcc +" savings");
 												Information.getUser(Information.getvalidAccountNumberUser(withdrawFamAcc)).setSavingsBalance(-FamAccwithdrawl);
-//												Information.getUser(Information.getvalidAccountNumberUser(UserInput)).addToMini("User withdrawn "+withdrawlAmount+" from his savings");
+												Information.getUser(Information.getvalidAccountNumberUser(UserInput)).addToMini("User withdrawn "+FamAccwithdrawl+" from "+withdrawFamAcc + " savings");
+												Information.getUser(Information.getvalidAccountNumberUser(withdrawFamAcc)).addToMini(UserInput+" withdrawn "+FamAccwithdrawl+" from your savings");
 											}
 											
 											else
