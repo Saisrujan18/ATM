@@ -9,7 +9,7 @@ public class Users
 	private ArrayList<String> MiniStatement =new  ArrayList<String>();
 	private ArrayList<String> AcessGiven = new ArrayList<String>();
 	private ArrayList<String> AcessTaken = new ArrayList<String>();
-	private ArrayList<String> AcessRequested = new ArrayList<String>();
+	public ArrayList<String> AcessRequested = new ArrayList<String>();
 	//	private String Bank;
 	Users(){}
 	Users(String accno,int pincode,double savbal,double currentbal)
@@ -20,7 +20,6 @@ public class Users
 		CurrentBalance=currentbal;
 //		Bank=bank;
 	}
-	
 	public String getUserAccountNumber(){	return UserAccountNumber;}
 	public int getUserPinCode(){return UserPinCode;}
 	public double getSavingsBalance(){return SavingsBalance;}

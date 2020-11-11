@@ -378,7 +378,7 @@ public class ATM
 									srujan.transactions.add(UserInput+" tried transferring ,but entered wrong ");
 									System.out.println("Entered Detail(s) are incorrect");
 								}
-								break;
+								break;  
 						case 8 :
 							Information.getUser(Information.getvalidAccountNumberUser(UserInput)).UserMiniStatement();
 								break;
@@ -402,7 +402,8 @@ public class ATM
 								int temporarySize=Information.getUser(Information.getvalidAccountNumberUser(UserInput)).getSize();
 								int[] que = new int[temporarySize];
 								for(int i=0;i<temporarySize;i++)
-								{	que[i]=x.nextInt();}
+								{	System.out.print(Information.getUser(Information.getvalidAccountNumberUser(UserInput)).AcessRequested.get(i));
+									que[i]=x.nextInt();}
 								Information.getUser(Information.getvalidAccountNumberUser(UserInput)).addToApproved(que);
 								System.out.println("Action completed");
 								break;
