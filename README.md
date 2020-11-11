@@ -1,16 +1,29 @@
 ### ATM
 ATM after updating common and individual constraints
 
--This ATM has an admin who should add money in denominations of 2000,500,200,100 .
-Admin can view all transactions , add money to ATM ,remove money from ATM and also can change his password.
+This ATM has an admin and Cashmanagement System.
+
+Admin can do the following tasks :
+
+1.Admin can view all transactions 
+2.Add money to ATM in denominations
+3.Remove money from ATM in denominations
+4.Can change his password.
+5.
+
+
 
 ATM identifies Admin i.e.,when ATM asks for Account number of the user . Admin enters his password (Only insiders know this)
+
 
 User after entering his account details ,he can only proceed forward if he enters a valid account number and later he is asked to enter pin code, of he enters correct pincode he can proceed further or else ATM restarts
 
 
+
 1.Only Admin is given the option to stop ATM 
+
 2.Users have the following options
+
      1.Withdraw money to savings account
      2.deposit money to current account
      3.withdraw money from current account
@@ -18,7 +31,9 @@ User after entering his account details ,he can only proceed forward if he enter
      5.He change his pin only if the changed pin is 5 digited(valid)
      6.He can also view his balance in savings and current account
      7.Also he can transfer money to different accounts and different account types
-
+     8.User can request His family members to grant access to withdraw money from their savings account
+     9.If User received any family withdrawl requests , he can approve them here,
+     10.After approval ,User can withdraw money from his family members account.
 --->Admin can
      - change his password
      - add money in denominations
